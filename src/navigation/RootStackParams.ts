@@ -1,7 +1,11 @@
 
 export type RootStackParams = {
-    TabBar:undefined;
+    TabBar: undefined;
     Home: undefined;
-    LearnFeaturesScreen:undefined
+    LearnFeaturesScreen: undefined;
+    LearnStartScreen: undefined;
+    RepetitionPracticeScreen: undefined;
+
+
 
 };

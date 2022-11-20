@@ -1,6 +1,6 @@
 import { createNavigationContainerRef, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { HomeScreen } from "../screens";
+import { HomeScreen, LearnStartScreen, RepetionPracticeScreen } from "../screens";
 import { RootStackParams } from "./RootStackParams";
 import TabNavigation from "./TabNavigation";
 
@@ -16,9 +16,9 @@ const RootNavigation = () => {
                 initialRouteName="TabBar"
                 screenOptions={{ headerShown: false }}
             >
-
-
                 <RootStack.Screen name='TabBar' component={TabNavigation} />
+                <RootStack.Screen name='LearnStartScreen' component={LearnStartScreen} />
+                <RootStack.Screen name='RepetitionPracticeScreen' component={RepetionPracticeScreen} />
 
 
             </RootStack.Navigator>

@@ -8,9 +8,8 @@ const Tab = createBottomTabNavigator<RootStackParams>();
 const TabNavigation = () => {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="Home" component={HomeScreen} />
             <Tab.Screen name="LearnFeaturesScreen" component={LearnFeaturesScreen} />
-
+            <Tab.Screen name="Home" component={HomeScreen} />
         </Tab.Navigator>
     )
 }

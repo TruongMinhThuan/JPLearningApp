@@ -1,8 +1,39 @@
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { RepetitionPracticeControl } from '../components/controls'
+import VocabularyCard from '../components/cards/VocabularyCard'
+
+const vocabularyList = [
+    {
+        id: 1,
+        title: 'Hello',
+        kanji: 'Heee',
+        meaning: 'Xin chao'
+    },
+    {
+        id: 2,
+        title: 'Sorry',
+        kanji: 'Heee',
+        meaning: 'Xin loi'
+    },
+    {
+        id: 3,
+        title: 'good morning',
+        kanji: 'Heee',
+        meaning: 'Chao buoi sang'
+    }
+]
 
 const RepetionPracticeScreen = () => {
+
+    const [practiceVocabularyList, setPracticeVocabularyList] = useState<any[]>(vocabularyList)
+    const [currentPracticeVocabulary, setCurrentPracticeVocabulary] = useState<any>()
+
+    useEffect(() => {
+        setPracticeVocabularyList(vocabularyList)
+        setCurrentPracticeVocabulary(vocabularyList[0])
+    }, [])
+
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView >
@@ -13,15 +44,7 @@ const RepetionPracticeScreen = () => {
                     <Text style={styles.prevReviewText}>Last reviewed an hour ago</Text>
                 </View>
 
-                <View>
-                    <View style={styles.vocabularyInfoView}>
-                        <Text style={styles.vocabularyText}>voca</Text>
-                        <Text style={styles.vocabularySubText}><Text style={styles.labelText}>Kanji</Text>: dasda</Text>
-                    </View>
-                    <View style={styles.vocabularyDescView}>
-                        <Text>to comprise, to account for</Text>
-                    </View>
-                </View>
+                <VocabularyCard vocabulary={currentPracticeVocabulary} />
             </ScrollView>
             <RepetitionPracticeControl />
         </SafeAreaView>
@@ -54,33 +77,5 @@ const styles = StyleSheet.create({
         color: 'gray',
         marginVertical: 4
     },
-    vocabularyInfoView: {
-        backgroundColor: 'lightgrey',
-        borderTopLeftRadius: 8,
-        borderTopRightRadius: 8,
-        marginHorizontal: 8,
-        padding: 10
-    },
-    vocabularyDescView: {
-        backgroundColor: 'lightgrey',
-        borderBottomLeftRadius: 8,
-        borderBottomRightRadius: 8,
-        marginHorizontal: 8,
-        padding: 10,
-        marginTop: 2
-    },
-    vocabularyText: {
-        fontSize: 22,
-        fontWeight: '600',
-        color: '#333333',
-        marginVertical: 4,
-    },
-    vocabularySubText: {
-        color: '#333',
-        marginBottom: 8
-    },
-    labelText: {
-        fontWeight: '800',
-        color: '#333333',
-    }
+
 })
